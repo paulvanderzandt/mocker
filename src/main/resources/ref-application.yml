@@ -1,0 +1,16 @@
+# put these on config/cluster-api-mocker/application.yml
+
+server:
+  port: 8082
+
+app:
+  ports:
+    - ${server.port}
+    - 8083
+    - 8084
+    - 8085
+    - 8086
+    - 8087
+    - 8088
+    - 8089
+
