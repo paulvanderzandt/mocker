@@ -1,0 +1,35 @@
+# put these on config/cluster-api-mocker/application.yml
+
+server:
+  port: 8082
+
+default.strategy: "io.axual.common.DefaultNamingStrategy"
+app:
+  configurations:
+    - port: ${server.port}
+      strategy: ${default.strategy}
+    - port: 8083
+      strategy: ${default.strategy}
+    - port: 8084
+      strategy: ${default.strategy}
+    - port: 8085
+      strategy: ${default.strategy}
+    - port: 8086
+      strategy: ${default.strategy}
+    - port: 8087
+      strategy: ${default.strategy}
+    - port: 8088
+      strategy: ${default.strategy}
+    - port: 8089
+      strategy: ${default.strategy}
+
+
+management:
+  server:
+    port: 9990
+    ssl:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"

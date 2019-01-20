@@ -1,17 +1,17 @@
 spring:
   application:
     name: cluster-api-mocker
-  cloud:
-    consul:
-      host: alternate.localhost
-      port: 8500
-      config:
-        format: YAML
-        data-key: application.yml
-      discovery:
-        instanceId: ${spring.application.name}:${random.value}
-        serviceName: axual-${spring.application.name}
-        management-suffix: mgt
+#  cloud:
+#    consul:
+#      host: alternate.localhost
+#      port: 8500
+#      config:
+#        format: YAML
+#        data-key: application.yml
+#      discovery:
+#        instanceId: ${spring.application.name}:${random.value}
+#        serviceName: axual-${spring.application.name}
+#        management-suffix: mgt
 
 management:
   server:

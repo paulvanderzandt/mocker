@@ -10,7 +10,8 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import io.axual.mocker.model.ClusterStatus;
+import io.axual.mocker.model.ClusterConfiguration;
+import io.axual.mocker.model.ClusterState;
 import lombok.Data;
 
 @Data
@@ -18,12 +19,16 @@ import lombok.Data;
 @ConfigurationProperties("app")
 public class BaseConfig {
 
-    private Map<Integer, ClusterStatus> active = new HashMap<>();
+    private Map<Integer, ClusterState> active = new HashMap<>();
 
-    private List<Integer> ports;
+    private List<ClusterConfiguration> configurations;
 
     @PostConstruct
     public void init() {
-        ports.forEach(port -> active.put(port, ClusterStatus.ACTIVE));
+        configurations.forEach(configuration -> active.put
+                (configuration.getPort(), ClusterState.builder()
+                        .state(ClusterState.State.ACTIVE)
+                        .strategy(configuration.getStrategy())
+                        .build()));
     }
 }

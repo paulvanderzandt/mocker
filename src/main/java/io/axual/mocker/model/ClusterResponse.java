@@ -8,4 +8,5 @@ import lombok.Value;
 public class ClusterResponse {
 
     private boolean active;
+    private String strategy;
 }
